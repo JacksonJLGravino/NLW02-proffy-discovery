@@ -27,12 +27,12 @@
 
         <div class="header-content">
           <strong>Que incrível que você quer dar aulas</strong>
-          <p>O primeiro passo, é preencher esse formulario de inscrição</p>
+          <p>O primeiro passo, é preencher esse formulário de inscrição</p>
         </div>
       </header>
 
       <main>
-        <form action="" id="create-class" method="">
+        <form action="/save-classes" id="create-class" method="POST">
           <fieldset>
             <legend>Seus dados</legend>
 
@@ -42,16 +42,16 @@
             </div>
 
             <div class="input-block">
-              <label for="avatar">
-                Link da sua foto <small>(comece com https://)</small>
-              </label>
+              <label for="avatar"
+                >Link da sua foto <small>(comece com https://)</small></label
+              >
               <input name="avatar" id="avatar" type="url" required />
             </div>
 
             <div class="input-block">
-              <label for="whatsapp">
-                Whatsapp <small>(somente números)</small>
-              </label>
+              <label for="whatsapp"
+                >Whatsapp <small>(somente números)</small></label
+              >
               <input name="whatsapp" id="whatsapp" type="number" required />
             </div>
 
@@ -64,7 +64,7 @@
           <fieldset>
             <legend>Sobre a aula</legend>
             <div class="select-block">
-              <label for="subject">Matéria</label>
+              <label for="subject"> Matéria</label>
               <select name="subject" id="subject" required>
                 <option value="">Selecione uma opção</option>
                 {%for subject in subjects %}
@@ -78,7 +78,7 @@
                 Custo da sua hora/aula
                 <small>(R$)</small>
               </label>
-              <input name="cost" type="number" id="cost" required />
+              <input name="cost" type="cost" id="cost" type="number" required />
             </div>
           </fieldset>
 
@@ -87,10 +87,12 @@
               Horários disponíveis
               <button type="button" id="add-time">+ Novo Horário</button>
             </legend>
+
             <div class="schedule-item">
               <div class="select-block">
                 <label for="weekday">Dia da semana</label>
                 <select name="weekday[]" required>
+                  <option value="">Selecione uma opção</option>
                   {%for weekday in weekdays %}
                   <option value="{{loop.index0}}">{{weekday}}</option>
                   {%endfor%}
